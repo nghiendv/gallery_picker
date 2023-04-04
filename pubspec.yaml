@@ -1,7 +1,7 @@
 name: gallery_picker
-description: A new Flutter package project.
+description: Camera and Gallery picker asset from Photo Manager in Flutter
 version: 0.0.1
-homepage:
+homepage: https://github.com/nghiendv/gallery_picker.git
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
