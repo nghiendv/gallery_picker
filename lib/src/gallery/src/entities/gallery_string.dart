@@ -20,13 +20,13 @@ class GalleryString {
   });
 
   ///
-  final AppBar? request_permission_appBar;
+  final PreferredSizeWidget? request_permission_appBar;
 
   ///
   final String? request_permission_navigation_title;
 
   ///
-  final File? request_permission_image;
+  final Image? request_permission_image;
 
   ///
   final String? request_permission_title;
@@ -45,9 +45,9 @@ class GalleryString {
 
   /// Helper function
   GalleryString copyWith({
-    AppBar? request_permission_appBar,
+    PreferredSizeWidget? request_permission_appBar,
     String? request_permission_navigation_title,
-    File? request_permission_image,
+    Image? request_permission_image,
     String? request_permission_title,
     TextStyle? request_permission_title_textStyle,
     String? request_permission_description,

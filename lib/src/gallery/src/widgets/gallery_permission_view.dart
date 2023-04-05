@@ -33,12 +33,7 @@ class GalleryPermissionView extends StatelessWidget {
               if (controller.galleryString.request_permission_image != null)
                 Column(
                   children: [
-                    Image.file(
-                      controller.galleryString.request_permission_image!,
-                      width: 110,
-                      height: 110,
-                      fit: BoxFit.cover,
-                    ),
+                    controller.galleryString.request_permission_image!,
                     const SizedBox(height: 24),
                   ],
                 ),
