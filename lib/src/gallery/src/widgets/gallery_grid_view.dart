@@ -53,7 +53,7 @@ class GalleryGridView extends StatelessWidget {
               // Error
               if (state.hasError) {
                 if (!state.hasPermission) {
-                  return const GalleryPermissionView();
+                  return GalleryPermissionView(controller: controller);
                 }
               }
 

@@ -23,30 +23,53 @@ class _FullscreenGalleryState extends State<FullscreenGallery> {
     super.initState();
     controller = GalleryController(
       gallerySetting: GallerySetting(
-          maximum: 1,
-          requestType: RequestType.common,
-          onItemClick: (item, list) {},
-          enableCamera: true,
-          crossAxisCount: 4,
-          backAndUnselect: () => false,
-          onReachedMaximumLimit: () {},
-          selectionCountAlignment: Alignment.topRight,
-          selectionCountRingSize: 5,
-          selectedStyle: SelectedStyle.border,
-          albumColor: Colors.greenAccent,
-          albumBorderRadius: BorderRadius.zero,
-          space: 0,
-          itemBorderRadius: BorderRadius.zero,
-          albumImageSize: 60,
-          albumSubTitleStyle: const TextStyle(color: Colors.black),
-          albumTitleStyle: const TextStyle(color: Colors.black),
-          cameraItemWidget: const ColoredBox(
-            color: Colors.red,
-            child: Icon(
-              CupertinoIcons.photo_camera_solid,
-              color: Colors.white,
-            ),
-          )),
+        maximum: 1,
+        requestType: RequestType.common,
+        onItemClick: (item, list) {},
+        enableCamera: true,
+        crossAxisCount: 4,
+        backAndUnselect: () => false,
+        onReachedMaximumLimit: () {},
+        selectionCountAlignment: Alignment.topRight,
+        selectionCountRingSize: 5,
+        selectedStyle: SelectedStyle.border,
+        albumColor: Colors.greenAccent,
+        albumBorderRadius: BorderRadius.zero,
+        space: 0,
+        itemBorderRadius: BorderRadius.zero,
+        albumImageSize: 60,
+        albumSubTitleStyle: const TextStyle(color: Colors.black),
+        albumTitleStyle: const TextStyle(color: Colors.black),
+        cameraItemWidget: const ColoredBox(
+          color: Colors.red,
+          child: Icon(
+            CupertinoIcons.photo_camera_solid,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      galleryString: GalleryString(
+        request_permission_appBar: AppBar(
+          title: Text('looix'),
+        ),
+        request_permission_navigation_title: 'Cấp quyền truy cập',
+        request_permission_title: 'Cấp quyền truy cập vào ảnh',
+        request_permission_title_textStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 16.0,
+        ),
+        request_permission_description:
+            'Quý khách vui lòng cấp quyền truy cập để chọn hình ảnh trong thư viện.',
+        request_permission_description_textStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 16.0,
+        ),
+        request_permission_button_title: 'Cho phép truy cập',
+        request_permission_button_title_textStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 16.0,
+        ),
+      ),
       headerSetting: HeaderSetting(
         headerMaxHeight: 56,
         elevation: 2,

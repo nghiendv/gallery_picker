@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../controllers/gallery_repository.dart';
 import 'package:gallery_picker/gallery_picker.dart';
+import 'package:gallery_picker/src/gallery/src/entities/gallery_string.dart';
 
 ///
 class GalleryAlbumView extends StatelessWidget {
@@ -37,15 +38,15 @@ class GalleryAlbumView extends StatelessWidget {
         // Error
         if (state.hasError) {
           if (!state.hasPermission) {
-            return const GalleryPermissionView();
+            return GalleryPermissionView(controller: controller);
           }
           return Container(
             alignment: Alignment.center,
-            color: Colors.black,
+            color: Colors.white,
             child: Text(
               state.error ?? 'Something went wrong',
               style: const TextStyle(
-                color: Colors.white,
+                color: Colors.grey,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -55,11 +56,11 @@ class GalleryAlbumView extends StatelessWidget {
         if (state.data?.isEmpty ?? true) {
           return Container(
             alignment: Alignment.center,
-            color: Colors.black,
+            color: Colors.white,
             child: const Text(
               'No data',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.grey,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -85,6 +86,7 @@ class GalleryAlbumView extends StatelessWidget {
                   return _Album(
                     panelSetting: controller.panelSetting,
                     setting: controller.setting,
+                    galleryString: controller.galleryString,
                     entity: entity,
                     onPressed: onAlbumChange,
                     color: controller.setting.albumColor,
@@ -105,6 +107,7 @@ class _Album extends StatelessWidget {
     required this.entity,
     required this.panelSetting,
     required this.setting,
+    required this.galleryString,
     this.onPressed,
     this.color = Colors.grey,
   }) : super(key: key);
@@ -112,6 +115,7 @@ class _Album extends StatelessWidget {
   final AssetPathEntity entity;
   final PanelSetting panelSetting;
   final GallerySetting setting;
+  final GalleryString galleryString;
   final Color color;
   final Function(AssetPathEntity album)? onPressed;
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:photo_manager/photo_manager.dart';
 import 'package:gallery_picker/gallery_picker.dart';
 import 'package:gallery_picker/src/gallary_entity.dart';
@@ -7,7 +6,7 @@ import 'package:gallery_picker/src/gallery/gallery_view.dart';
 import 'package:gallery_picker/src/gallery/gallery_view.dart';
 
 ///
-/// Setting for likk picker
+/// Setting for gallery picker
 ///
 class GallerySetting {
   ///

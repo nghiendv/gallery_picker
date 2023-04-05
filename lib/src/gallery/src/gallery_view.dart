@@ -9,6 +9,7 @@ import 'package:gallery_picker/src/camera/camera_view.dart';
 import 'package:gallery_picker/src/animations/animations.dart';
 import 'package:gallery_picker/src/playground/playground.dart';
 import 'package:gallery_picker/src/slidable_panel/slidable_panel.dart';
+import 'package:gallery_picker/src/gallery/src/entities/gallery_string.dart';
 import 'package:gallery_picker/src/gallery/src/widgets/gallery_permission_view.dart';
 
 // ignore: always_use_package_imports
@@ -18,6 +19,8 @@ import '../../gallary_entity.dart';
 import 'widgets/gallery_header.dart';
 // ignore: always_use_package_imports
 import 'entities/gallery_value.dart';
+// ignore: always_use_package_imports
+import 'entities/gallery_string.dart';
 // ignore: always_use_package_imports
 import 'entities/gallery_setting.dart';
 // ignore: always_use_package_imports
@@ -477,8 +480,8 @@ class GalleryViewField extends StatefulWidget {
   }) : super(key: key);
 
   ///
-  /// While picking likk using gallery removed will be true if,
-  /// previously selected likk is unselected otherwise false.
+  /// While picking gallery using gallery removed will be true if,
+  /// previously selected gallery is unselected otherwise false.
   ///
   final void Function(GallaryEntity entity, bool removed)? onChanged;
 
@@ -598,14 +601,16 @@ class _GalleryViewFieldState extends State<GalleryViewField> {
 ///
 class GalleryController extends ValueNotifier<GalleryValue> {
   ///
-  /// Likk controller
+  /// gallery controller
   GalleryController({
     PanelSetting? panelSetting,
     HeaderSetting? headerSetting,
     GallerySetting? gallerySetting,
+    GalleryString? galleryString,
   })  : panelSetting = panelSetting ?? const PanelSetting(),
         headerSetting = headerSetting ?? const HeaderSetting(),
         setting = gallerySetting ?? const GallerySetting(),
+        galleryString = galleryString ?? const GalleryString(),
         _panelController = PanelController(),
         _albumsNotifier = ValueNotifier(const BaseState()),
         _albumNotifier = ValueNotifier(const BaseState()),
@@ -630,10 +635,13 @@ class GalleryController extends ValueNotifier<GalleryValue> {
   /// Media setting
   late final GallerySetting setting;
 
+  /// String
+  late final GalleryString galleryString;
+
   /// Panel controller
   final PanelController _panelController;
 
-  /// Likk repository
+  /// gallery repository
   late final GalleryRepository _repository;
 
   /// Albums notifier
@@ -899,7 +907,9 @@ class GalleryController extends ValueNotifier<GalleryValue> {
     if (permission != PermissionState.authorized &&
         permission != PermissionState.limited) {
       final route = SlideTransitionPageRoute<dynamic>(
-        builder: const GalleryPermissionView(),
+        builder: GalleryPermissionView(
+          controller: this,
+        ),
         transitionCurve: Curves.easeIn,
         // begainHorizontal: true,
         endHorizontal: false,
